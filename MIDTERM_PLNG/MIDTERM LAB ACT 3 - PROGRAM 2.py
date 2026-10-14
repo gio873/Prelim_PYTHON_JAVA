@@ -16,7 +16,6 @@ def run_program_2():
 
     full_name = first_name + " " + last_name
     print(f"Full name: {full_name}")
-
     print(f"First character: {full_name[0]}")
     print(f"Last character: {full_name[-1]}")
 
@@ -40,15 +39,21 @@ def run_program_2():
     print(f"Sliced last name: {sliced_last}")
 
     while True:
-        search_char = input("Enter one character to search: ")
-        if len(search_char) == 1:
+        search_input = input("Enter one or two characters to search (e.g., 'Aa' or 'M'): ").strip()
+        if 1 <= len(search_input) <= 2:
             break
-            
-    if search_char in full_name:
-        index = full_name.find(search_char)
-        print(f"Character found at index: {index}")
-    else:
-        print("Character not found.")
+        print("Invalid input! Please enter exactly 1 or 2 characters.")
+
+    for search_char in set(search_input):
+        case_type = "uppercase" if search_char.isupper() else "lowercase" if search_char.islower() else "special"
+        
+        print(f"\nSearching for your requested character: '{search_char}' ({case_type})")
+        
+        if search_char in full_name:
+            index = full_name.find(search_char)
+            print(f"-> Found! '{search_char}' is at index: {index}")
+        else:
+            print(f"-> Not found: '{search_char}' does not exist in the full name.")
 
 if __name__ == "__main__":
     run_program_2()

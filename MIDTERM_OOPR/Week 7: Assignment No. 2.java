@@ -2,21 +2,27 @@ import java.util.Scanner;
 
 public class LetterCheck {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(String.class.cast("").getClass().cast(System.in));
+        Scanner scanner = new Scanner(System.in);
+        char ch = '\0';
         
-        System.out.print("Enter a letter: ");
-        char ch = scanner.next().charAt(0);
-        
-        if (!Character.isLetter(ch)) {
-            System.out.println("Invalid input. Please enter a letter.");
-        } else {
-            char lowerCh = Character.toLowerCase(ch);
+        while (true) {
+            System.out.print("Enter a letter: ");
+            String input = scanner.next();
             
-            if (lowerCh == 'a' || lowerCh == 'e' || lowerCh == 'i' || lowerCh == 'o' || lowerCh == 'u') {
-                System.out.println("It's a vowel!");
+            if (input.length() == 1 && Character.isLetter(input.charAt(0))) {
+                ch = input.charAt(0);
+                break; 
             } else {
-                System.out.println("It's a consonant!");
+                System.out.println("Invalid input! Integers, special characters, or multi-character inputs are not allowed.");
             }
+        }
+        
+        char lowerCh = Character.toLowerCase(ch);
+        
+        if (lowerCh == 'a' || lowerCh == 'e' || lowerCh == 'i' || lowerCh == 'o' || lowerCh == 'u') {
+            System.out.println("It's a vowel!");
+        } else {
+            System.out.println("It's a consonant!");
         }
         
         scanner.close();

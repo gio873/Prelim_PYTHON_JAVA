@@ -2,11 +2,9 @@ import java.util.Scanner;
 
 public class MachineProblemSystem {
     public static void main(String[] args) {
-        // gawa ng scanner para sa mga input
         Scanner scanner = new Scanner(System.in);
         int choice = 0;
 
-        // pangunahing loop para sa menu ng mga programa
         do {
             System.out.println("\n========================================");
             System.out.println("   MACHINE PROBLEM SYSTEM (ACTIVITIES 18-27)");
